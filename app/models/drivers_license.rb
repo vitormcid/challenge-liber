@@ -1,3 +1,3 @@
 class DriversLicense < ApplicationRecord
-	belongs_to :person, required: false
+	has_one :person, required: false, foreign_key: "driver_license_id"
 end

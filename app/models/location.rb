@@ -3,7 +3,7 @@ class Location < ApplicationRecord
 	belongs_to :automobile, foreign_key: "automobile_id"
 
 	scope :active, -> { where("withdrawal_date is not ? and return_date is ?", nil,nil) }
-	scope :without_delay, -> { where("return_date < end_date") }
+	scope :without_delay, -> { where("return_date <= end_date") }
 	
 	validates :person, :automobile, presence: true
 	validate :validate_location_uniqueness
@@ -50,7 +50,7 @@ class Location < ApplicationRecord
 
 	def validate_wednesday_location
 		if Date.current.strftime('%A') == "Wednesday" &&
-		   automobile.license_plate_termination == 4
+		   automobile.license_plate_termination == "4"
 		   	self.errors[:base] << "Esse Carro nao pode ser alugado nas quartas feiras"
 		end	
 	end
