@@ -61,9 +61,9 @@ class Location < ApplicationRecord
 		end	
 	end		
 
-	def location_duration
+	def location_duration		
 		return unless start_date.present? and end_date.present?
-		(end_date - start_date).to_i
+		(end_date - start_date).to_i/86400
 	end	
 
 	def validate_compatible_age(age)

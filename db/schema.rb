@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_211032) do
+ActiveRecord::Schema.define(version: 2019_11_27_190932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 2019_11_26_211032) do
     t.integer "people_id"
     t.integer "automobile_id"
     t.float "value"
-    t.date "start_date"
-    t.date "end_date"
-    t.date "withdrawal_date"
-    t.date "return_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "withdrawal_date"
+    t.datetime "return_date"
   end
 
   create_table "people", force: :cascade do |t|
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_211032) do
   create_table "phones", force: :cascade do |t|
     t.string "number"
     t.string "ddd"
-    t.string "type"
+    t.string "kind"
     t.boolean "preferential"
     t.integer "people_id"
   end
