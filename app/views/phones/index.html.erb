@@ -58,7 +58,7 @@
     <div class="row">
 
       <div class="col-lg-3">
-        <h1 class="my-4">Entidades</h1>
+        <h1 class="my-4">Cadastros</h1>
         <div class="list-group">
           <a href="/person" class="list-group-item active">
             Pessoas
@@ -76,7 +76,7 @@
           <%= image_tag("Aluguel-de-carro.png")%>
           <div class="card-body">
             <h3 class="card-title" style="align-text:center"><%= image_tag("liber_capital.png", size: "90x80", :style => 'padding-right: 10px', alt: "Liber Capital")%>
-               Pessoas
+              Telefones
             </h3>
             <hr>                 
           </div>
@@ -85,28 +85,25 @@
         <table>
           <thead>
             <tr>
-              <th><%=Person.human_attribute_name(:id)%></th>    
-              <th><%=Person.human_attribute_name(:name)%></th>    
-              <th><%=Person.human_attribute_name(:last_name)%></th>    
-              <th><%=Person.human_attribute_name(:document)%></th>    
-              <th><%=Person.human_attribute_name(:email)%></th>    
-              <th><%=Person.human_attribute_name(:birth_date)%></th>    
-              <th><%=Person.human_attribute_name(:drivers_license)%></th>    
-              <th><%=Person.human_attribute_name(:drivers_license)%></th>    
+              <th><%=Phone.human_attribute_name(:id)%></th>    
+              <th><%=Phone.human_attribute_name(:number)%></th>    
+              <th><%=Phone.human_attribute_name(:ddd)%></th>    
+              <th><%=Phone.human_attribute_name(:kind)%></th>    
+              <th><%=Phone.human_attribute_name(:preferential)%></th>    
+              <th><%=Phone.human_attribute_name(:people)%></th>   
+            
             </tr>
           </thead>
 
           <tbody>
-            <%@people.each do |person|%>
+            <%@phones.each do |phone|%>
               <tr>
-                <td><%=person.id%></td>   
-                <td><%=person.name%></td>   
-                <td><%=person.last_name%></td>   
-                <td><%=person.document%></td>   
-                <td><%=person.email%></td>   
-                <td><%=person.birth_date%></td>   
-                <td><%=person.drivers_license&.number%></td>   
-                <td><%=person.drivers_license&.number%></td>   
+                <td><%=phone.id%></td>                   
+                <td><%=phone.number%></td>                   
+                <td><%=phone.ddd%></td>                   
+                <td><%=phone.kind%></td>                   
+                <td><%=phone.preferential%></td>                   
+                <td><%="#{phone.person&.name} #{phone.person.last_name}"%></td>                   
               </tr>              
             <%end%>  
           </tbody>
