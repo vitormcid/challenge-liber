@@ -14,7 +14,7 @@ class Report
         Person.all.each do |person|
             next unless person.birth_date.present?          
             if (person.birth_date + 40.years < Date.current) &&
-               person.drivers_license.validiy < Date.current
+               person.drivers_license.validiy > Date.current
                     people_names << "#{person.name} #{person.last_name}" 
             end         
         end 

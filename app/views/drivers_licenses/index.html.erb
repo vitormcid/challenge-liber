@@ -23,7 +23,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="welcome/index">
+      <a class="navbar-brand" href="/welcome/index">
       <%= image_tag("liber_capital.png", size: "60x50", :style => 'padding-right: 10px', alt: "Liber Capital")%>
       Desafio Liber Capital
       </a>
@@ -34,18 +34,12 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/welcome">Home
+            <a class="nav-link" href="#">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="/report">Relatório</a>
           </li>
         </ul>
       </div>
@@ -58,18 +52,21 @@
     <div class="row">
 
       <div class="col-lg-3">
-        <h1 class="my-4">Cadastros</h1>
+        <h1 class="my-4"><font face="Sans-serif">Cadastros</font></h1>
         <div class="list-group">
-          <a href="/person" class="list-group-item active">
+          <a href="/person" class="list-group-item active">            
             Pessoas
           </a>
           <a href="/locations" class="list-group-item">Locações</a>
-          <a href="/drivers_licenses" class="list-group-item">Carteiras</a>
+          <a href="/drivers_licenses" class="list-group-item active">Carteiras</a>
           <a href="/phones" class="list-group-item">Telefones</a>
+          <a href="/report" class="list-group-item active" style="margin-top:30px">
+            Relatório
+          </a>
         </div>
-      </div>
-      <!-- /.col-lg-3 -->
 
+     
+      </div>
       <div class="col-lg-9">
 
         <div class="card mt-4">
