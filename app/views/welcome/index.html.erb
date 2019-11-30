@@ -1,136 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+<%= render "template/header" %>   
 
-<head>
+<div class="col-lg-9">
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Desafio Liber Capital</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/shop-item.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="/welcome/index">
-      <%= image_tag("liber_capital.png", size: "60x50", :style => 'padding-right: 10px', alt: "Liber Capital")%>
-      Desafio Liber Capital
-  	  </a>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/report">Relatório</a>
-          </li>     
-        </ul>
-      </div>
+  <div class="card mt-4">
+    <%= image_tag("Aluguel-de-carro.png")%>
+    <div class="card-body">
+      <h3 class="card-title"><%= image_tag("liber_capital.png", size: "90x80", :style => 'padding-right: 10px', alt: "Liber Capital")%>
+         Desafio Liber Capital
+   	</h3>
+      <hr>           
+      <p class="card-text">Esta aplicação, consiste no resultado do desafio proposto para o processo seletivo de analista BackEnd da Liber Capital</p>
+      <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span>          
     </div>
-  </nav>
+  </div>
 
-  <!-- Page Content -->
-  <div class="container">
+  <div class="card card-outline-secondary my-4">
+    <div class="card-header">
+    	
+    </div>
+    <div class="card-body">
+      <p> <%= image_tag("ruby.png", size: "50x40", :style => 'padding-right: 10px', alt: "Ruby on Rails")%>
+      	O Projeto foi desenvolvido no framework Ruby on Rails com o banco de dados postgresql
+      </p>	
+      </small>
+      <hr>
+      <p>
+          <%= image_tag("postgresql.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
+      	Todas as informações disponíveis nas tabelas de entidades foram inseridas através de uma Seed, conforme pedia o enunciado.
+  	</p>          
+      <hr>
+      <p> <%= image_tag("questionario.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
+      	As Questões requisitadas na especificação, estão disponívies na aba "Relatórios". As repostas foram construidas com query active records presentes
+         no modelo "Report"
+      </p>
+      <small class="text-muted">28/11/2019</small>
+      <hr>
+      <a href="/report" class="btn btn-primary">Ver Relatório</a>
+    </div>
+  </div>
 
-    <div class="row">
+</div>
 
-      <div class="col-lg-3">
-        <h1 class="my-4"><font face="Sans-serif">Cadastros</font></h1>
-        <div class="list-group">
-          <a href="/person" class="list-group-item active">            
-          	Pessoas
-          </a>
-          <a href="/locations" class="list-group-item">Locações</a>
-          <a href="/drivers_licenses" class="list-group-item active">Carteiras</a>
-          <a href="/phones" class="list-group-item">Telefones</a>
-          <a href="/report" class="list-group-item active" style="margin-top:30px">
-            Relatório
-          </a>
-        </div>
+<%= render "template/footer" %>   
+
 
      
-      </div>
-
-      <!-- /.col-lg-3 -->
-
-      <div class="col-lg-9">
-
-        <div class="card mt-4">
-          <%= image_tag("Aluguel-de-carro.png")%>
-          <div class="card-body">
-            <h3 class="card-title"><%= image_tag("liber_capital.png", size: "90x80", :style => 'padding-right: 10px', alt: "Liber Capital")%>
-               Desafio Liber Capital
-         	</h3>
-            <hr>           
-            <p class="card-text">Esta aplicação, consiste no resultado do desafio proposto para o processo seletivo de analista BackEnd da Liber Capital</p>
-            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span>          
-          </div>
-        </div>
-        <!-- /.card -->
-
-        <div class="card card-outline-secondary my-4">
-          <div class="card-header">
-          	
-          </div>
-          <div class="card-body">
-            <p> <%= image_tag("ruby.png", size: "50x40", :style => 'padding-right: 10px', alt: "Ruby on Rails")%>
-            	O Projeto foi desenvolvido no framework Ruby on Rails com o banco de dados postgresql
-            </p>	
-            </small>
-            <hr>
-            <p>
-                <%= image_tag("postgresql.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
-            	Todas as informações disponíveis nas tabelas de entidades foram inseridas através de uma Seed, conforme pedia o enunciado.
-        	</p>          
-            <hr>
-            <p> <%= image_tag("questionario.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
-            	As Questões requisitadas na especificação, estão disponívies na aba "Relatórios". As repostas foram construidas com query active records presentes
-               no modelo "Report"
-            </p>
-            <small class="text-muted">28/11/2019</small>
-            <hr>
-            <a href="/report" class="btn btn-primary">Ver Relatório</a>
-          </div>
-        </div>
-        <!-- /.card -->
-
-      </div>
-      <!-- /.col-lg-9 -->
-
-    </div>
-
-  </div>
-  <!-- /.container -->
-
-  <!-- Footer -->
-  <footer class="py-5 bg-primary">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Desafio Liber Capital 2019</p>
-    </div>
-    <!-- /.container -->
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>

@@ -1,232 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
+<%= render "template/header"%>
+<div class="col-lg-9">
 
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Desafio Liber Capital</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/shop-item.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="/welcome/index">
-      <%= image_tag("liber_capital.png", size: "60x50", :style => 'padding-right: 10px', alt: "Liber Capital")%>
-      Desafio Liber Capital
-  	  </a>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/report">Relatório</a>
-          </li> 
-        </ul>
-      </div>
+  <div class="card mt-4">
+    <%= image_tag("Aluguel-de-carro.png")%>
+    <div class="card-body">
+      <h3 class="card-title"><%= image_tag("liber_capital.png", size: "90x80", :style => 'padding-right: 10px', alt: "Liber Capital")%>
+         Relatório
+   	</h3>
+      <hr>           
+      <p class="card-text">
+      	As informações abaixo, consistem nas repostas às perguntas realizadas na especificação do desafio.
+      	Todas as informações são geradas através de querys com active record. O código correspondente às querys,
+      	está disponível na documentação externa do projeto.
+      </p>
+      <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span>          
     </div>
-  </nav>
-
-  <!-- Page Content -->
-  <div class="container">
-
-    <div class="row">
-
-      <div class="col-lg-3">
-        <h1 class="my-4"><font face="Sans-serif">Cadastros</font></h1>
-        <div class="list-group">
-          <a href="/person" class="list-group-item active">            
-          	Pessoas
-          </a>
-          <a href="/locations" class="list-group-item">Locações</a>
-          <a href="/drivers_licenses" class="list-group-item active">Carteiras</a>
-          <a href="/phones" class="list-group-item">Telefones</a>
-          <a href="/report" class="list-group-item active" style="margin-top:30px">
-            Relatório
-          </a>
-        </div>
-
-     
-      </div>
-
-
-      <div class="col-lg-9">
-
-        <div class="card mt-4">
-          <%= image_tag("Aluguel-de-carro.png")%>
-          <div class="card-body">
-            <h3 class="card-title"><%= image_tag("liber_capital.png", size: "90x80", :style => 'padding-right: 10px', alt: "Liber Capital")%>
-               Relatório
-         	</h3>
-            <hr>           
-            <p class="card-text">
-            	As informações abaixo, consistem nas repostas às perguntas realizadas na especificação do desafio.
-            	Todas as informações são geradas através de querys com active record. O código correspondente às querys,
-            	está disponível na documentação externa do projeto.
-            </p>
-            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span>          
-          </div>
-        </div>
-        <!-- /.card -->
-
-        <div class="card card-outline-secondary my-4">
-          <div class="card-header">
-          	
-          </div>
-          <div class="card-body">
-            <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Ruby on Rails")%>
-            	Qual é o custo total de todas as locações de carros?
-            </p>        
-            <hr>
-            <p>
-                <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Postgresql")%>
-            	<%=Report.location_cost %> Reais
-        	</p>          
-            <hr>
-            <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
-            	Qual o nome completo das pessoas que possuem atrasos em suas locações e o quanto.
-            </p>
-            <hr>
-            <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>
-            	<%Report.people_in_delay.each do |v|%>            	  
-            	  <p style="padding-left:60px;">nome: <%=v.first%>, atraso: <%=v.last%> </p>           
-            	<% end %>
-            </p>        
-            <hr>
-
-            <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
-            	Qual o nome completo das pessoas que podem alugar caminhões?
-            </p>
-            <hr>
-            <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>              	         	
-            	<%Report.can_rent_trucks.each do |v|%>            	  
-            	  <%=v%>,          
-            	<% end %>
-            	<%= "Nenhum Registro" unless Report.can_rent_trucks.present? %>
-            </p>         
-            <hr>
-
-            <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
-            	Qual o nome completo das pessoas com locações em andamento?
-            </p>
-            <hr>
-            <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>
-            	<%Report.people_with_active_locations.each do |v|%>            	  
-            	  <%=v%>,          
-            	<% end %>
-            	<%= "Nenhum Registro" unless Report.people_with_active_locations.present? %>
-            </p>        
-            <hr>
-
-
-            <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
-            	Qual o nome completo das pessoas que podem alugar automóveis por mais de 4 dias?
-            </p>
-            <hr>
-            <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>
-            	<%Report.can_make_large_locations.each do |v|%>            	  
-            	  <%=v%>,          
-            	<% end %>
-            	<%= "Nenhum Registro" unless Report.can_make_large_locations.present? %>
-            </p>        
-            <hr>
-
-            <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
-            	Quais automóveis não podem ser alugados às quartas-feiras?
-            </p>
-            <hr>
-            <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>
-            	<%Report.cars_banned_on_wednesdays.each do |v|%>            	  
-            	  <%=v%>,          
-            	<% end %>
-            	<%= "Nenhum Registro" unless Report.cars_banned_on_wednesdays.present? %>
-            </p>        
-            <hr>
-
-            <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
-            	Qual será o custo de uma locação de moto por 3 dias?
-            </p>
-            <hr>
-            <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>
-            	<%=Report.price_motorcycle_3_days.round(3)%> reais
-            </p>        
-            <hr>
-
-            <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
-            	Liste as pessoas ordenando pelo custo de locações (maior para menor)
-            </p>
-            <hr>
-            <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>
-            	<%Report.location_cost_per_person.each do |v|%>            	  
-            	  <%=v%>,          
-            	<% end %>
-            	<%= "Nenhum Registro" unless Report.location_cost_per_person.present? %>
-            </p>        
-            <hr>
-
-            <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
-            	Liste as pessoas para as quais a habilitação possui menos de 1 mês para seu vencimento
-            </p>
-            <hr>
-            <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>
-            	<%Report.people_1_month_to_expire_license.each do |v|%>            	  
-            	  <%=v%>,          
-            	<% end %>
-            	<%= "Nenhum Registro" unless Report.people_1_month_to_expire_license.present? %>
-            </p>        
-            <hr>
-
-
-
-
-
-
-
-            <small class="text-muted">28/11/2019</small>
-            <hr>           
-          </div>
-        </div>
-        <!-- /.card -->
-
-      </div>
-      <!-- /.col-lg-9 -->
-
-    </div>
-
   </div>
-  <!-- /.container -->
+  <!-- /.card -->
 
-  <!-- Footer -->
-  <footer class="py-5 bg-primary">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Desafio Liber Capital 2019</p>
+  <div class="card card-outline-secondary my-4">
+    <div class="card-header">
+    	
     </div>
-    <!-- /.container -->
-  </footer>
+    <div class="card-body">
+      <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Ruby on Rails")%>
+      	Qual é o custo total de todas as locações de carros?
+      </p>        
+      <hr>
+      <p>
+          <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Postgresql")%>
+      	<%=Report.location_cost %> Reais
+  	</p>          
+      <hr>
+      <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
+      	Qual o nome completo das pessoas que possuem atrasos em suas locações e o quanto.
+      </p>
+      <hr>
+      <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>
+      	<%Report.people_in_delay.each do |v|%>            	  
+      	  <p style="padding-left:60px;">nome: <%=v.first%>, atraso: <%=v.last%> </p>           
+      	<% end %>
+      </p>        
+      <hr>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
+      	Qual o nome completo das pessoas que podem alugar caminhões?
+      </p>
+      <hr>
+      <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>              	         	
+      	<%Report.can_rent_trucks.each do |v|%>            	  
+      	  <%=v%>,          
+      	<% end %>
+      	<%= "Nenhum Registro" unless Report.can_rent_trucks.present? %>
+      </p>         
+      <hr>
 
-</body>
+      <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
+      	Qual o nome completo das pessoas com locações em andamento?
+      </p>
+      <hr>
+      <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>
+      	<%Report.people_with_active_locations.each do |v|%>            	  
+      	  <%=v%>,          
+      	<% end %>
+      	<%= "Nenhum Registro" unless Report.people_with_active_locations.present? %>
+      </p>        
+      <hr>
 
-</html>
+
+      <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
+      	Qual o nome completo das pessoas que podem alugar automóveis por mais de 4 dias?
+      </p>
+      <hr>
+      <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>
+      	<%Report.can_make_large_locations.each do |v|%>            	  
+      	  <%=v%>,          
+      	<% end %>
+      	<%= "Nenhum Registro" unless Report.can_make_large_locations.present? %>
+      </p>        
+      <hr>
+
+      <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
+      	Quais automóveis não podem ser alugados às quartas-feiras?
+      </p>
+      <hr>
+      <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>
+      	<%Report.cars_banned_on_wednesdays.each do |v|%>            	  
+      	  <%=v%>,          
+      	<% end %>
+      	<%= "Nenhum Registro" unless Report.cars_banned_on_wednesdays.present? %>
+      </p>        
+      <hr>
+
+      <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
+      	Qual será o custo de uma locação de moto por 3 dias?
+      </p>
+      <hr>
+      <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>
+      	<%=Report.price_motorcycle_3_days.round(3)%> reais
+      </p>        
+      <hr>
+
+      <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
+      	Liste as pessoas ordenando pelo custo de locações (maior para menor)
+      </p>
+      <hr>
+      <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>
+      	<%Report.location_cost_per_person.each do |v|%>            	  
+      	  <%=v%>,          
+      	<% end %>
+      	<%= "Nenhum Registro" unless Report.location_cost_per_person.present? %>
+      </p>        
+      <hr>
+
+      <p> <%= image_tag("pergunta.png", size: "50x40", :style => 'padding-right: 10px', alt: "Postgresql")%>
+      	Liste as pessoas para as quais a habilitação possui menos de 1 mês para seu vencimento
+      </p>
+      <hr>
+      <p> <%= image_tag("resposta.png", size: "50x40", :style => 'margin-left: 30px', alt: "Ruby on Rails")%>
+      	<%Report.people_1_month_to_expire_license.each do |v|%>            	  
+      	  <%=v%>,          
+      	<% end %>
+      	<%= "Nenhum Registro" unless Report.people_1_month_to_expire_license.present? %>
+      </p>        
+      <hr>
+      <small class="text-muted">28/11/2019</small>
+      <hr>           
+    </div>
+  </div>
+</div>
+
+<%= render "template/footer"%>
+

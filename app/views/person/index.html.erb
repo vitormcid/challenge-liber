@@ -1,134 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+<%= render "template/header" %>
 
-<head>
+<div class="col-lg-9">
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Desafio Liber Capital</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/shop-item.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="/welcome/index">
-      <%= image_tag("liber_capital.png", size: "60x50", :style => 'padding-right: 10px', alt: "Liber Capital")%>
-      Desafio Liber Capital
-      </a>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="welcome/index">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/report">Relatório</a>
-          </li>     
-        </ul>
-      </div>
+  <div class="card mt-4">
+    <%= image_tag("Aluguel-de-carro.png")%>
+    <div class="card-body">
+      <h3 class="card-title" style="align-text:center"><%= image_tag("liber_capital.png", size: "90x80", :style => 'padding-right: 10px', alt: "Liber Capital")%>
+         Pessoas
+      </h3>
+      <hr>                 
     </div>
-  </nav>
-
-  <!-- Page Content -->
-  <div class="container">
-
-    <div class="row">
-
-      <div class="col-lg-3">
-        <h1 class="my-4"><font face="Sans-serif">Cadastros</font></h1>
-        <div class="list-group">
-          <a href="/person" class="list-group-item active">            
-            Pessoas
-          </a>
-          <a href="/locations" class="list-group-item">Locações</a>
-          <a href="/drivers_licenses" class="list-group-item active">Carteiras</a>
-          <a href="/phones" class="list-group-item">Telefones</a>
-          <a href="/report" class="list-group-item active" style="margin-top:30px">
-            Relatório
-          </a>
-        </div>
-
-     
-      </div>
-
-      <div class="col-lg-9">
-
-        <div class="card mt-4">
-          <%= image_tag("Aluguel-de-carro.png")%>
-          <div class="card-body">
-            <h3 class="card-title" style="align-text:center"><%= image_tag("liber_capital.png", size: "90x80", :style => 'padding-right: 10px', alt: "Liber Capital")%>
-               Pessoas
-            </h3>
-            <hr>                 
-          </div>
-        </div>
-
-        <table>
-          <thead>
-            <tr>
-              <th><%=Person.human_attribute_name(:id)%></th>    
-              <th><%=Person.human_attribute_name(:name)%></th>    
-              <th><%=Person.human_attribute_name(:last_name)%></th>    
-              <th><%=Person.human_attribute_name(:document)%></th>    
-              <th><%=Person.human_attribute_name(:email)%></th>    
-              <th><%=Person.human_attribute_name(:birth_date)%></th>    
-              <th><%=Person.human_attribute_name(:drivers_license)%></th>    
-              <th><%=Person.human_attribute_name(:drivers_license)%></th>    
-            </tr>
-          </thead>
-
-          <tbody>
-            <%@people.each do |person|%>
-              <tr>
-                <td><%=person.id%></td>   
-                <td><%=person.name%></td>   
-                <td><%=person.last_name%></td>   
-                <td><%=person.document%></td>   
-                <td><%=person.email%></td>   
-                <td><%=person.birth_date%></td>   
-                <td><%=person.drivers_license&.number%></td>   
-                <td><%=person.drivers_license&.number%></td>   
-              </tr>              
-            <%end%>  
-          </tbody>
-        </table>
-       
-      </div>
-     
-    </div>
-
   </div>
-  <!-- /.container -->
 
-  <!-- Footer -->
-  <footer class="py-5 bg-primary" style="margin-top:40px;">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Desafio Liber Capital 2019</p>
-    </div>
-    <!-- /.container -->
-  </footer>
+  <table>
+    <thead>
+      <tr>
+        <th><%=Person.human_attribute_name(:id)%></th>    
+        <th><%=Person.human_attribute_name(:name)%></th>    
+        <th><%=Person.human_attribute_name(:last_name)%></th>    
+        <th><%=Person.human_attribute_name(:document)%></th>    
+        <th><%=Person.human_attribute_name(:email)%></th>    
+        <th><%=Person.human_attribute_name(:birth_date)%></th>    
+        <th><%=Person.human_attribute_name(:drivers_license)%></th>    
+        <th><%=Person.human_attribute_name(:drivers_license)%></th>    
+      </tr>
+    </thead>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <tbody>
+      <%@people.each do |person|%>
+        <tr>
+          <td><%=person.id%></td>   
+          <td><%=person.name%></td>   
+          <td><%=person.last_name%></td>   
+          <td><%=person.document%></td>   
+          <td><%=person.email%></td>   
+          <td><%=person.birth_date%></td>   
+          <td><%=person.drivers_license&.number%></td>   
+          <td><%=person.drivers_license&.number%></td>   
+        </tr>              
+      <%end%>  
+    </tbody>
+  </table>
+ 
+</div>
 
-</body>
-
-</html>
+<%= render "template/footer" %>
