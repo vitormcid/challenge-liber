@@ -15,14 +15,13 @@
   <table>
     <thead>
       <tr>
-        <th><%=Person.human_attribute_name(:id)%></th>    
-        <th><%=Person.human_attribute_name(:name)%></th>    
-        <th><%=Person.human_attribute_name(:last_name)%></th>    
-        <th><%=Person.human_attribute_name(:document)%></th>    
-        <th><%=Person.human_attribute_name(:email)%></th>    
-        <th><%=Person.human_attribute_name(:birth_date)%></th>    
-        <th><%=Person.human_attribute_name(:drivers_license)%></th>    
-        <th><%=Person.human_attribute_name(:drivers_license)%></th>    
+        <th><%=I18n.t('people.id')%></th>    
+        <th><%=I18n.t('people.name')%></th>    
+        <th><%=I18n.t('people.last_name')%></th>    
+        <th><%=I18n.t('people.document')%></th>    
+        <th><%=I18n.t('people.email')%></th>    
+        <th><%=I18n.t('people.birth_date')%></th>    
+        <th><%=I18n.t('people.drivers_license')%></th>              
       </tr>
     </thead>
 
@@ -35,8 +34,7 @@
           <td><%=person.document%></td>   
           <td><%=person.email%></td>   
           <td><%=person.birth_date%></td>   
-          <td><%=person.drivers_license&.number%></td>   
-          <td><%=person.drivers_license&.number%></td>   
+          <td><%=person.drivers_license&.number%></td>      
         </tr>              
       <%end%>  
     </tbody>

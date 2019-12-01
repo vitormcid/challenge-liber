@@ -1,0 +1,42 @@
+pt-BR:
+  locations:
+    id: ID
+    person: Pessoa
+    start_date: Data Inicial
+    automobile: Automobile
+    value: Valor
+    start_date: Data Inicial
+    end_date: Data Final
+    withdrawal_date: Data de Retirada
+    return_date: Data de Devolução
+  people:
+    id: id
+    name: Nome
+    last_name: Sobrenome
+    document: Documento
+    email: email
+    birth_date: Data de nascimento
+    drivers_license: Carteira de Motorista
+    phones: Telefones
+  automobiles:
+    id: id
+    model: Modelo
+    color: Cor
+    year: Ano
+    license_plate: Placa
+    kind: Tipo
+    daily_cost: Valor Diário
+  drivers_licenses:
+    id: id
+    number: Número
+    modalities: Modalidades
+    validiy: Validade
+  phones:
+    id: id
+    number: Número
+    ddd: DDD
+    kind: Tipo
+    preferential: Preferencial
+    person: pessoa
+
+    
