@@ -3,7 +3,8 @@ class Location < ApplicationRecord
 	belongs_to :automobile, foreign_key: "automobile_id"
 
 	scope :active, -> { where("withdrawal_date is not ? and return_date is ?", nil,nil) }
-	scope :without_delay, -> { where("return_date <= end_date") }
+	#Regra Não tolera nada de atraso
+	# scope :without_delay, -> { where("return_date <= end_date") }
 	
 	validates :person, :automobile, presence: true
 	validate :validate_location_uniqueness
@@ -74,5 +75,16 @@ class Location < ApplicationRecord
 		return false unless person.drivers_license.present?
 		person&.drivers_license&.modalities&.include?(kind)		
 	end
+
+	def self.without_delay
+		locations_without_delay = []
+		self.all.each do |location|			
+			next unless location.return_date.present? && location.end_date.present?
+			if location.return_date < location.end_date + 2.hours
+				locations_without_delay << location
+			end	
+		end
+		locations_without_delay
+	end	
 
 end
