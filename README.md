@@ -18,6 +18,6 @@ dinâmicamente no carregamento da página.
 * Para acessar o site, é necessário atenticação. O cadastro de novos usuários está disponível na tela de login.
 
 * O Site está disponível em uma plataforma online, e pode ser visualizado através do seguinte link:
- https://dashboard.heroku.com/apps/liberchallenge
+https://liberchallenge.herokuapp.com
 
 
