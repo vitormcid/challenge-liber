@@ -7,5 +7,4 @@ class Person < ApplicationRecord
 		return unless locations.present?
 		locations.without_delay.count >= 2
 	end	
-
 end

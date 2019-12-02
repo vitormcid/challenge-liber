@@ -17,6 +17,7 @@
     <thead>
       <tr>
         <th><%=I18n.t('drivers_licenses.id')%></th>    
+        <th><%=I18n.t('drivers_licenses.person')%></th>    
         <th><%=I18n.t('drivers_licenses.number')%></th>    
         <th><%=I18n.t('drivers_licenses.modalities')%></th>    
         <th><%=I18n.t('drivers_licenses.validiy')%></th>                 
@@ -27,6 +28,7 @@
       <%@drivers_license.each do |drivers_license|%>
         <tr>
           <td><%=drivers_license.id%></td>   
+          <td><%="#{drivers_license.person&.name} #{drivers_license.person&.last_name}"%></td>   
           <td><%=drivers_license.number%></td>   
           <td><%=drivers_license.modalities%></td>   
           <td><%=drivers_license.validiy%></td>                 

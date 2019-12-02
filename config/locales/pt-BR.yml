@@ -29,6 +29,7 @@ pt-BR:
   drivers_licenses:
     id: id
     number: Número
+    person: Pessoa
     modalities: Modalidades
     validiy: Validade
   phones:
